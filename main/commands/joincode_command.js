@@ -12,7 +12,6 @@ class JoinCodeCommand extends CommandBase {
 		const user = message.author;
 		const channel = message.channel;
 		var id;
-		//fetchs id
 		if (args.length == 0) {
 			id = user.id;
 		} else if (args.length == 1) {
