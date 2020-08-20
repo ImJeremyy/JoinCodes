@@ -7,7 +7,12 @@ function write(path, obj) {
 }
 
 function read(path) {
-	return fs.readFileSync(path);
+	try {
+		const val = fs.readFileSync(path);
+		return val;
+	} catch (error) {
+		return null;
+	}
 }
 
 const dataPath = "C:\\Users\\Jeremy_Mark\\Documents\\GitHub\\JoinCodes\\main\\data";
