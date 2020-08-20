@@ -27,6 +27,7 @@ class JoinCodeCommand extends CommandBase {
 				channel.send(user.toString() + " Join code was not registered. Register with **.registercode <join_code>**");
 				return;
 			}
+			console.log(reply);
 			const code = reply.toString();
 			channel.send(user.toString() + "\n```/join " + code + "```");
 			console.log("Successful fetch of id:" + id + " code: " + code);
