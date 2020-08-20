@@ -19,7 +19,7 @@ class JoinCodeCommand extends CommandBase {
 			channel.send(user.toString() + " Invalid command usage. .joincode <@user>");
 			return;
 		}
-		const read = json.read(json.usersPath + "\\" + targetId + ".json");
+		const read = json.read(json.usersPath + "\\" + id + ".json");
 		if (read != null) {
 			const code = read.joinCode;
 			channel.send(user.toString() + "\n```/join " + code + "```");
