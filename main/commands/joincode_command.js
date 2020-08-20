@@ -10,11 +10,18 @@ class JoinCodeCommand extends CommandBase {
 	run(message, args) {
 		const user = message.author;
 		const channel = message.channel;
-		if (args.length == 1) {
+		if (args.length == 0) {
+			const code = json.read(json.usersPath + "\\" + user.id + ".json").joinCode;
+			if (code != undefined) {
+				channel.send(user.toString() + " Your join code is " + code + "\n```/join " + code + "```");
+			} else {
+				channel.send(user.toString() + " This user has not registered their join code");
+			}
+		} else if (args.length == 1) {
 			const targetId = util.getIdFromAt(args[0]);
 			const code = json.read(json.usersPath + "\\" + targetId + ".json").joinCode;
 			if (code != undefined) {
-				channel.send(user.toString() + " This user's join code is " + code);
+				channel.send(user.toString() + " Their join code is " + code + "\n```/join " + code + "```");
 			} else {
 				channel.send(user.toString() + " This user has not registered their join code");
 			}
