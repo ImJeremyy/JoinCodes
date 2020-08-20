@@ -10,4 +10,7 @@ function read(path) {
 	return fs.readFileSync(path);
 }
 
-const dataPath = "C:\\Users\\Jeremy_Mark\\Documents\\GitHub\\JoinCodes\\data";
+const dataPath = "C:\\Users\\Jeremy_Mark\\Documents\\GitHub\\JoinCodes\\main\\data";
+module.exports.usersPath = dataPath + "\\users";
+module.exports.write = write;
+module.exports.read = read;
