@@ -22,15 +22,14 @@ class JoinCodeCommand extends CommandBase {
 			return;
 		}
 		client.get(id, (err, reply) => {
-			if (err != null) {
-				console.log("Attempted code fetch. id: " + id + " reply.toString(): " + reply.toString());
-				channel.send(user.toString() + " Join code was not registered. Register with **.registercode <join_code>**");
-				return;
+			console.log(err);
+			if (reply != null) {
+				const code = reply.toString();
+				channel.send(user.toString() + "\n```/join " + code + "```");
+				console.log("Successful fetch of id:" + id + " code: " + code);
+			} else {
+				channel.send(user.toString() + "Code not registered. :( **.registercode <code>**");
 			}
-			console.log(reply);
-			const code = reply.toString();
-			channel.send(user.toString() + "\n```/join " + code + "```");
-			console.log("Successful fetch of id:" + id + " code: " + code);
 		});
 	}
 }
