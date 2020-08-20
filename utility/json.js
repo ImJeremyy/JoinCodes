@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("jsonfile");
 
 function write(path, obj) {
 	fs.writeFile(path + ".json", obj, { spaces: 2 }, (err) => {
@@ -11,4 +11,4 @@ function read(path) {
 }
 
 const dataPath = "C:\\Users\\Jeremy_Mark\\Documents\\GitHub\\JoinCodes\\data";
-module.exports.token = dataPath + "\\token.json";
+module.exports.token = read(dataPath + "\\token.json").token;
