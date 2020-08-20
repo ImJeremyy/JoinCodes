@@ -11,4 +11,3 @@ function read(path) {
 }
 
 const dataPath = "C:\\Users\\Jeremy_Mark\\Documents\\GitHub\\JoinCodes\\data";
-module.exports.token = read(dataPath + "\\token.json").token;
